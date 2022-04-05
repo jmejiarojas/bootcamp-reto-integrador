@@ -1,8 +1,7 @@
-conn = new Mongo();
-db = conn.getDB("mongodb-integrador");
+db = db.getSiblingDB('mongodb-integrador')
 
 
-#db.myCollectionName.createIndex({ "address.zip": 1 }, { unique: false });
+//db.myCollectionName.createIndex({ "address.zip": 1 }, { unique: false });
 db.favorites.insert(
 [
     { 
