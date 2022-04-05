@@ -51,11 +51,11 @@ Run the image and create a container
 ```
 docker run \
 -e 'ACCEPT_EULA=Y' \
--e 'SA_PASSWORD=Password1!' \
+-e 'SA_PASSWORD=Oracle11g' \
 -e 'MSSQL_PID=Express' \
 --name sqlserver \
 -p 1433:1433 \
--d mssql:dev
+-d jmejiarojas/integrator-bd-mssql:latest
 ```
 Access the container to confirm it is working.
 ```bash
