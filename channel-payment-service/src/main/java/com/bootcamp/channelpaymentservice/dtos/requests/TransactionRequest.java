@@ -8,7 +8,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TransactionRequest {
+    private String channelCode;
     private String serviceCode;
     private String supplyNumber;
     private double amount;
+    private FavoriteRequest favoriteRequest;
 }

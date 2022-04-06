@@ -1,6 +1,5 @@
 package com.bootcamp.channelpaymentservice.config;
 
-import com.bootcamp.channelpaymentservice.dtos.responses.ServicioResponse;
 import com.bootcamp.channelpaymentservice.util.ServicioCache;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +13,7 @@ import org.springframework.data.redis.serializer.GenericToStringSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-import java.util.List;
+import java.time.Duration;
 
 @Configuration
 public class RedisConfiguration {
@@ -46,6 +45,9 @@ public class RedisConfiguration {
                 .hashKey(new StringRedisSerializer())
                 .hashValue(new GenericJackson2JsonRedisSerializer())
                 .build();
-        return new ReactiveRedisTemplate<>(connectionFactory, serializationContext);
+
+        ReactiveRedisTemplate<String, ServicioCache> reactiveRedisTemplate = new ReactiveRedisTemplate<>(connectionFactory, serializationContext);
+        //reactiveRedisTemplate.expire("servicios", Duration.ofMinutes(5));
+        return reactiveRedisTemplate;
     }
 }
