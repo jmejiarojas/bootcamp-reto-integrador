@@ -26,6 +26,7 @@ public class TransactionServiceImpl implements TransactionService {
         transaction.setAmount(transactionRequest.getAmount());
         transaction.setServiceCode(transactionRequest.getServiceCode());
         transaction.setSupplyNumber(transactionRequest.getSupplyNumber());
+        transaction.setChannelCode(transactionRequest.getChannelCode());
         transaction.setDateTime(LocalDate.now());
         return transaction;
     }

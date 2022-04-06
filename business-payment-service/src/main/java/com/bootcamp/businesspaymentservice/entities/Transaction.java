@@ -20,6 +20,9 @@ public class Transaction {
     @Id
     private Integer id; // codigo de la transaccion
 
+    @Column("channelCode")
+    private String channelCode;
+
     @Column("serviceCode")
     private String serviceCode;
 
